@@ -3,3 +3,23 @@ cd D:\2020\coding\chart_js_templates
 python -m http.server 5000
 
 --------------------------------------------------------------------------------
+https://www.chartjs.org/docs/next/samples/
+
+
+cd /d/2020/coding/chart_js_templates
+#-------------------------------------------------------------------------------
+.gitignore
+bad_errors/
+
+#-------------------------------------------------------------------------------
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/aspiringguru/chartjs_3.7.1_vanilla.git
+git push -u origin main
+
+
+git add .
+git commit -m "cleanup"
+git push
