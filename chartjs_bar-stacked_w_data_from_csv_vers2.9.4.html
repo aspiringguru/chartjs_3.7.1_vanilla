@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- works. displays 4 separate datasets as line chart with legend at top. no title..  -->
+<!-- works in older version of chart.js not current -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <!--<link rel="stylesheet" href="style.css"> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+    <!-- page content -->
+    <script>
+        console.log("hello world.")
+        d3.csv("data.csv", function(data_) {
+            keys = Object.keys(data_[0])
+          var ctx = document.getElementById('myChart').getContext('2d');
+          var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: keys,
+              datasets: [{
+                  data: Object.values(data_[0]),
+                  label: "Total",
+                  borderColor: "#3e95cd",
+                  backgroundColor: "#7bb6dd",
+                  borderWidth:2
+                }, {
+                  data: Object.values(data_[1]),
+                  label: "Accepted",
+                  borderColor: "#3cba9f",
+                  backgroundColor: "#71d1bd",
+                  borderWidth:2
+                }, {
+                  data: Object.values(data_[2]),
+                  label: "Pending",
+                  borderColor: "#ffa500",
+                  backgroundColor:"#ffc04d",
+                  borderWidth:2
+                }, {
+                  data: Object.values(data_[3]),
+                  label: "Rejected",
+                  borderColor: "#c45850",
+                  backgroundColor:"#d78f89",
+                  borderWidth:2
+                }
+              ]
+            },//end data
+            options: {
+              plugins: {
+                <!-- wont display title in v 2.9.4, might display in current version?? -->
+                title: {
+                  display: true,
+                  text: 'Chart.js Bar Chart - Stacked'
+                },
+                scales: {
+                   xAxes: [{
+                    stacked: true
+                   }],
+                   yAxes: [{
+                    stacked:true
+                   }],
+                }//end scales
+              }//end plugins
+             },//end options
+          });
+      });//end d3.json(
+    </script>
+  </body>
+</html>

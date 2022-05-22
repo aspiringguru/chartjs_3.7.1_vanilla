@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- works. displays 4 separate datasets as line chart with legend at top. no title..  -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <!--<link rel="stylesheet" href="style.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+    <!-- page content -->
+    <script>
+        console.log("hello world.")
+        d3.csv("data.csv", function(data_) {
+            keys = Object.keys(data_[0])
+          var ctx = document.getElementById('myChart').getContext('2d');
+          var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: keys,
+              datasets: [{
+                  data: Object.values(data_[0]),
+                  label: "Total",
+                  borderColor: "#3e95cd",
+                  backgroundColor: "#7bb6dd",
+                  fill: false,
+                }, {
+                  data: Object.values(data_[1]),
+                  label: "Accepted",
+                  borderColor: "#3cba9f",
+                  backgroundColor: "#71d1bd",
+                  fill: false,
+                }, {
+                  data: Object.values(data_[2]),
+                  label: "Pending",
+                  borderColor: "#ffa500",
+                  backgroundColor:"#ffc04d",
+                  fill: false,
+                }, {
+                  data: Object.values(data_[3]),
+                  label: "Rejected",
+                  borderColor: "#c45850",
+                  backgroundColor:"#d78f89",
+                  fill: false,
+                }
+              ]
+            },
+          });
+      });//end d3.json(
+    </script>
+  </body>
+</html>
