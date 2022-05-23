@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- works. displays 4 separate datasets as line chart with legend at top. no title..  -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <!--<link rel="stylesheet" href="style.css"> -->
+    <!--  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+    <!-- page content -->
+    <script>
+        console.log("hello world...")
+        d3.json("data_bubble.json", function(data_) {
+        //d3.json("prog_languages.json", function(data_) {
+        //d3.json("data_sample.json", function(data_) {
+            console.log("AAAAA")
+            console.log("data:", data_)
+            data2 = [{
+                    x: 20,
+                    y: 30,
+                    r: 15
+                  }, {
+                    x: 40,
+                    y: 10,
+                    r: 10
+                  }]
+            console.log("data2:", data2)
+            console.log("typeof(data_):", typeof(data_))
+            data3 = [].concat(data_, data2)
+            console.log("data3:", data3)
+            //console.log("data.keys:", Object.keys(data_))
+            //console.log("data.values:", Object.values(data_))
+            console.log("BBB")
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+              type: 'bubble',
+              data: {
+                datasets: [{
+                    label: "dataset 1",
+                    data: data3,
+                    backgroundColor: "#7bb6dd",
+                  },
+                ]
+              },//end data
+            });//end myChart = new Chart
+      });//end d3.json(
+    </script>
+  </body>
+</html>

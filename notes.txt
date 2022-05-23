@@ -23,3 +23,11 @@ git push -u origin main
 git add .
 git commit -m "cleanup"
 git push
+
+--------------------------------------------------------------------------------
+https://github.com/aspiringguru/chartjs_3.7.1_vanilla
+
+
+
+some of the refernences used.
+https://code.tutsplus.com/tutorials/getting-started-with-chartjs-pie-doughnut-and-bubble-charts--cms-28446
