@@ -44,10 +44,25 @@
               type: 'bubble',
               data: {
                 datasets: [{
-                    label: "dataset 1",
-                    data: data3,
+                    label: "datapoint 1",
+                    data:  [{
+                      x: 1,
+                      y: 4,
+                      r: 26,
+                      fruit: 'orange'
+                    }],
                     backgroundColor: "red",// #7bb6dd
                   },
+                  {
+                      label: "datapoint 1",
+                      data:  [{
+                        x: 2,
+                        y: 2,
+                        r: 15,
+                        fruit: 'apple'
+                      }],
+                      backgroundColor: "yellow",// #7bb6dd
+                    },
                 ]
               },//end data
             });//end myChart = new Chart
